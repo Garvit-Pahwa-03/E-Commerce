@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+import { customFetch } from '../api';
 
 const Profile = () => {
   const { user, logout } = useContext(AuthContext);
@@ -15,7 +16,7 @@ const Profile = () => {
     }
     const fetchMyOrders = async () => {
       try {
-        const res = await fetch('/api/orders/myorders', {
+        const res = await customFetch('/api/orders/myorders', {
           headers: { Authorization: `Bearer ${user.token}` }
         });
         const data = await res.json();
@@ -36,7 +37,7 @@ const Profile = () => {
       }
     };
     fetchMyOrders();
-  }, [user, navigate, logout]); // 👈 Added 'logout' here to satisfy dependency requirements
+  }, [user, navigate, logout]);
 
   const handleLogout = () => {
     logout();

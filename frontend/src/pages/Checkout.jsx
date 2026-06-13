@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { clearCart } from '../redux/cartSlice';
+import { customFetch } from '../api';
 
 const Checkout = () => {
   const { user } = useContext(AuthContext);
@@ -91,7 +92,7 @@ const Checkout = () => {
   // };
 
   const bypassPayment = async () => {
-    const saveOrderRes = await fetch('/api/orders', {
+    const saveOrderRes = await customFetch('/api/orders', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
