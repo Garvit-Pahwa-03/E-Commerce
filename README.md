@@ -20,7 +20,7 @@
 
 ## 🌐 Live Demo
 
-> [**View Live App →**](https://your-app.vercel.app) — Frontend on Vercel · Backend API on Render
+> [**View Live App →**](https://e-commerce-gray-kappa.vercel.app) — Frontend on Vercel · Backend API on Render
 
 ### 🔑 Demo Access
 
@@ -196,55 +196,6 @@ npm run dev
 
 ---
 
-## ☁️ Deployment
-
-ShopNest uses a split deployment setup — the **backend** is hosted on Render and the **frontend** is deployed separately on Vercel.
-
-### Backend — Render
-
-1. Push the repo to GitHub
-2. Go to [Render Dashboard](https://dashboard.render.com) → **New Web Service**
-3. Connect your GitHub repo and point it to the `backend/` directory
-4. Set the following:
-
-| Setting | Value |
-|---------|-------|
-| **Build Command** | `npm install` |
-| **Start Command** | `npm start` |
-
-5. Under **Advanced → Environment Variables**, add all your `.env` variables and set `NODE_ENV=production`
-6. Copy the deployed Render API URL (e.g. `https://shopnest-api.onrender.com`)
-
-### Frontend — Vercel
-
-1. Go to [Vercel Dashboard](https://vercel.com) → **New Project**
-2. Import your GitHub repo and set the root directory to `frontend/`
-3. Add an environment variable:
-
-| Key | Value |
-|-----|-------|
-| `REACT_APP_API_URL` | `https://your-render-api.onrender.com` |
-
-4. Hit **Deploy** — Vercel auto-detects the React app and builds it
-
----
-
-## 📬 API Reference (Postman)
-
-A fully configured Postman collection is included: **`ShopNest_Postman_Collection.json`**
-
-Import it into Postman to test all API endpoints. It includes pre-configured variables like `{{token}}` for protected admin and user routes.
-
-**Endpoint Groups:**
-- `POST /api/auth/register` — Register a new user
-- `POST /api/auth/login` — Login and receive JWT
-- `GET /api/products` — Fetch all products
-- `POST /api/orders` — Place an order (protected)
-- `GET /api/analytics` — Admin dashboard data (admin only)
-- `POST /api/payment/create-order` — Initiate Razorpay payment
-
----
-
 ## 🔐 Authentication Flow
 
 1. User registers/logs in → receives a **JWT token**
@@ -254,20 +205,7 @@ Import it into Postman to test all API endpoints. It includes pre-configured var
 
 ---
 
-## 📸 Screenshots
 
-> *(Add screenshots of Home, Shop, Admin Dashboard, Checkout here)*
-
----
-
-## 👤 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-
----
 
 ## 📝 License
 
