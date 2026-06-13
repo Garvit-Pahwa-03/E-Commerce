@@ -36,7 +36,7 @@ const Profile = () => {
       }
     };
     fetchMyOrders();
-  }, [user, navigate]);
+  }, [user, navigate, logout]); // 👈 Added 'logout' here to satisfy dependency requirements
 
   const handleLogout = () => {
     logout();
