@@ -117,7 +117,7 @@ const Checkout = () => {
       navigate('/login');
       return;
     }
-    handlePayment();
+    bypassPayment();
   };
 
   return (
