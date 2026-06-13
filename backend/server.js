@@ -2,7 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
-const path = require('path');
 
 dotenv.config();
 connectDB();
@@ -17,18 +16,17 @@ app.use(cors({
 
 app.use(express.json());
 
+// API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/payment', require('./routes/paymentRoutes'));
 app.use('/api/analytics', require('./routes/analyticsRoutes'));
 
-// Serve frontend in production
+// Production vs Development Base Landing Page
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/build')));
-  
-  app.use((req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
+  app.get('/', (req, res) => {
+    res.json({ message: 'ShopNest API is running live and healthy in Production...' });
   });
 } else {
   app.get('/', (req, res) => {
